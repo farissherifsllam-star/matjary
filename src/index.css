@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-cairo: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-tajawal: 'Tajawal', system-ui, -apple-system, sans-serif;
+    --font-display: 'Cairo', 'Tajawal', sans-serif;
+    --font-sans: 'Cairo', 'Plus Jakarta Sans', system-ui, sans-serif;
+    
+    /* Brand Theme Tokens */
+    --color-brand-purple: #7C3AED;
+    --color-brand-purple-dark: #6D28D9;
+    --color-brand-gold: #F59E0B;
+  }
+  
+  html {
+    direction: rtl;
+    text-align: right;
+    font-family: var(--font-cairo);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-cairo);
+    direction: rtl;
+  }
+
+  /* Ensure numbers and SKUs maintain legible direction */
+  .ltr-num {
+    direction: ltr;
+    display: inline-block;
+    unicode-bidi: embed;
+  }
+
+  /* Custom Scrollbar for Arabic Dashboard and Storefront */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.4);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(124, 58, 237, 0.7);
+  }
+}
+
+/* Print Stylesheet for Invoices and Reports */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    direction: rtl !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
